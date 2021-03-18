@@ -14,16 +14,23 @@
   <PropertyGroup>
     <AssemblyName>Rg.Plugins.Popup</AssemblyName>
     <RootNamespace>Rg.Plugins.Popup</RootNamespace>
-    <PackageId>Rg.Plugins.Popup</PackageId>
+    <PackageId>Rg.Plugins.Popup.UbiPark</PackageId>
     <Description>Plugin for Xamarin forms. Allows you to open any page as a popup.</Description>
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
     <UseWPF Condition=" '$(OS)' == 'Windows_NT' ">true</UseWPF>
+    <PackageVersion>2.0.0.73</PackageVersion>
+    <Owners>Kirill Lyubimov</Owners>
+    <PackOnBuild>true</PackOnBuild>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
 
   <PropertyGroup Condition="$(TargetFramework.StartsWith('uap')) And '$(OS)' == 'Windows_NT'">
     <GenerateLibraryLayout>true</GenerateLibraryLayout>
   </PropertyGroup>
   
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DefineConstants>TRACE;PORTABLE;NETSTANDARD20;RELEASE;NETSTANDARD;NETSTANDARD2_0;</DefineConstants>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Platforms\**\*.cs" />
     <None Include="Platforms\**\*.cs" />
